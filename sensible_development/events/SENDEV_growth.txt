@@ -1,0 +1,307 @@
+namespace = SENDEV_growth
+
+# Test
+
+province_event = {
+    id = SENDEV_growth.0
+    hidden = yes
+    trigger = {
+        NOT = {
+            OR = {
+                devastation = 1
+                owner = {
+                    blockade = 0.75
+                    has_any_disaster = yes
+                    war_exhaustion = 2
+                }
+            }
+        }
+        is_blockaded = no
+        is_looted = no
+        province_getting_expelled_minority = no
+        is_city = yes
+
+        # TODO: Remove
+        owner = {
+            has_institution = feudalism
+            # controlled_by = owner
+        }
+    }
+
+    # TODO: Add modifiers.
+    mean_time_to_happen = {
+        months = 1
+        modifier = {
+            factor = 1 #
+            is_capital = yes
+        }
+
+        # MODIFIER_LOCAL_DEVELOPMENT_COST
+
+
+    }
+
+    # Growth Modifiers
+
+    # Existing development
+    #   development (diminishing value)
+    # Development cost
+    #   modifiers
+    #       local_development_cost
+    #       local_development_cost_modifier
+    # Capital
+    #   capital
+    # Great Power
+    #   is_great_power
+    #   is_hegemon
+    # Trading in agricultural goods
+    #   trade_goods (maybe not)
+    #   trading_part
+    #   trading_bonus
+    #   production_leader
+    #   trade_goods_produced_amount
+    # Expanded administration
+    # Centre of Trade
+    # Prosperity
+    #   is_prosperous
+    # Institution / Location / Technology for tropics / Africa / Australia
+    # Climate (Arctic / Arid / Tropical / Temperate)
+    # Weather?
+    # Terrain
+    # Golden Age
+    # Manpower
+    #   manpower_percentage
+
+
+    # has_local_modifier_value = {
+    #    which = local_production_efficiency
+    #    value = 0.15
+    # }
+
+    # trading_part = {
+    #     trade_goods = cocoa
+    #     value = 0.05
+    # }
+
+    # Any - should be a silent event
+    picture = ANGRY_MOB_eventPicture
+
+    # Options are weighted by existing development so that provinces don't get strange distributions. 
+    option = {
+        name = SENDEV_growth.0.a
+
+        export_to_variable = {
+            which = tax_ratio
+            value = trigger_value:base_tax
+        }
+        export_to_variable = {
+            which = province_dev
+            value = trigger_value:development
+        }
+        divide_variable = {
+            which = tax_ratio
+            value = { province_dev }
+        }
+        multiply_variable = {
+            which = tax_ratio
+            value = -100
+        }
+        change_variable = {
+            which = tax_ratio
+            value = 100
+        }
+
+        ai_chance = {
+            factor = 100
+            modifier = {
+                factor = 6
+                check_variable = {
+                    which = tax_ratio
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = tax_ratio
+                        value = 0.1
+                    }
+                }
+            }
+            modifier = {
+                factor = 4
+                check_variable = {
+                    which = tax_ratio
+                    value = 0.1
+                }
+                NOT = {
+                    check_variable = {
+                        which = tax_ratio
+                        value = 0.2
+                    }
+                }
+            }
+            modifier = {
+                factor = 2
+                check_variable = {
+                    which = tax_ratio
+                    value = 0.2
+                }
+                NOT = {
+                    check_variable = {
+                        which = tax_ratio
+                        value = 0.3
+                    }
+                }
+            }
+        }
+
+        add_base_tax = 1
+	}
+    option = {
+        name = SENDEV_growth.0.b
+
+        export_to_variable = {
+            which = production_ratio
+            value = trigger_value:base_production
+        }
+        export_to_variable = {
+            which = province_dev
+            value = trigger_value:development
+        }
+        divide_variable = {
+            which = production_ratio
+            value = { province_dev }
+        }
+        # multiply_variable = {
+        #     which = production_ratio
+        #     value = -100
+        # }
+        # change_variable = {
+        #     which = production_ratio
+        #     value = 100
+        # }
+
+        ai_chance = {
+            factor = 100
+            modifier = {
+                factor = 6
+                check_variable = {
+                    which = production_ratio
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = production_ratio
+                        value = 0.1
+                    }
+                }
+            }
+            modifier = {
+                factor = 4
+                check_variable = {
+                    which = production_ratio
+                    value = 0.1
+                }
+                NOT = {
+                    check_variable = {
+                        which = production_ratio
+                        value = 0.2
+                    }
+                }
+            }
+            modifier = {
+                factor = 2
+                check_variable = {
+                    which = production_ratio
+                    value = 0.2
+                }
+                NOT = {
+                    check_variable = {
+                        which = production_ratio
+                        value = 0.3
+                    }
+                }
+            }
+        }
+
+        # ai_chance = {
+        #     factor = 100
+        #     modifier = { factor = { manpower_ratio } }
+        # }
+
+        add_base_production = 1	
+	}
+    option = {
+        name = SENDEV_growth.0.c
+
+        export_to_variable = {
+            which = manpower_ratio
+            value = trigger_value:base_manpower
+        }
+        export_to_variable = {
+            which = province_dev
+            value = trigger_value:development
+        }
+        divide_variable = {
+            which = manpower_ratio
+            value = { province_dev }
+        }
+        multiply_variable = {
+            which = manpower_ratio
+            value = -100
+        }
+        change_variable = {
+            which = manpower_ratio
+            value = 100
+        }
+
+        ai_chance = {
+            factor = 100
+            modifier = {
+                factor = 6
+                check_variable = {
+                    which = manpower_ratio
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = manpower_ratio
+                        value = 0.1
+                    }
+                }
+            }
+            modifier = {
+                factor = 4
+                check_variable = {
+                    which = manpower_ratio
+                    value = 0.1
+                }
+                NOT = {
+                    check_variable = {
+                        which = manpower_ratio
+                        value = 0.2
+                    }
+                }
+            }
+            modifier = {
+                factor = 2
+                check_variable = {
+                    which = manpower_ratio
+                    value = 0.2
+                }
+                NOT = {
+                    check_variable = {
+                        which = manpower_ratio
+                        value = 0.3
+                    }
+                }
+            }
+        }
+
+        # ai_chance = {
+        #     factor = 100
+        #     modifier = { factor = manpower_ratio }
+        # }
+
+        add_base_manpower = 1	
+	}
+}

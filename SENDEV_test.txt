@@ -1,0 +1,46 @@
+# if = {
+#     limit = {
+#         # trigger to test
+#     }
+#     #add_treasury = 1
+# }
+
+
+248 = {
+    export_to_variable = { which = test value = trigger_value:base_manpower }
+    export_to_variable = { which = test2 value = trigger_value:development }
+    log = "[This.GetName] has [This.test.GetValue]"
+    log = "[This.GetName] has [This.test2.GetValue]"
+    divide_variable = { 
+        which = test
+        value = { test }
+    }
+    multiply_variable = {
+        which = test
+        value = -1
+    }
+    change_variable = {
+        which = test
+        value = 1
+    }
+    log = "[This.GetName] has [This.test.GetValue]"
+
+}
+
+# province_event = {
+#     id = SENDEV_test.0
+#     picture = ANGRY_MOB_eventPicture
+
+#     trigger = { province_id = 248 }
+
+#     option = {
+#         add_base_production = 1
+#     }
+# }
+
+# country_event {
+#     name = SENDEV_test.0
+#     picture = ANGRY_MOB_eventPicture
+
+
+# }

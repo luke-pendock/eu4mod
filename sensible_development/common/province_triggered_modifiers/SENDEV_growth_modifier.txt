@@ -1,0 +1,38 @@
+SENDEV_growing_city = {
+	
+	potential = {
+		always = yes
+	}
+
+	trigger = {
+        NOT = {
+            OR = {
+                devastation = 1
+                owner = {
+                    blockade = 0.75
+                    has_any_disaster = yes
+                    war_exhaustion = 2
+                }
+            }
+        }
+        is_blockaded = no
+        is_looted = no
+        province_getting_expelled_minority = no
+        is_city = yes
+
+        # TODO: Remove
+        owner = {
+            has_institution = feudalism
+            # controlled_by = owner
+        }
+	}
+
+	#Province scope
+	on_activation = {
+
+	}
+	
+	on_deactivation = {
+	
+	}
+}
