@@ -1,1 +1,8 @@
-﻿
+﻿name: Build sensible-development
+on: [workflow_call]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4

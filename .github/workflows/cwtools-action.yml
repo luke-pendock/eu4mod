@@ -1,12 +1,13 @@
 ﻿# From: https://github.com/cwtools/cwtools-action
+# Run on ubuntu-latest as docker runners aren't officially supported and it's causing issues.
 
 name: CWTools CI
 
-on: [pull_request, push] # other events may work but are not supported
+on: [workflow_call] # other events may work but are not supported
 
 jobs:
   cwtools_job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1 # required
     - uses: cwtools/cwtools-action@v1.1.0
