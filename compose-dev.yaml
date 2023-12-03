@@ -6,5 +6,7 @@ services:
     image: lukependock/eu4_scripting:latest
     init: true
     volumes:
-    - eu4-data:/opt/eu4-data
+      - eu4-data:/opt/eu4-data
 
+volumes:
+  eu4-data:
