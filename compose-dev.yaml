@@ -3,10 +3,8 @@ services:
     entrypoint:
     - sleep
     - infinity
-    image: docker/dev-environments-default:stable-1
+    image: lukependock/eu4_scripting:latest
     init: true
     volumes:
-    - type: bind
-      source: /var/run/docker.sock
-      target: /var/run/docker.sock
+    - eu4-data:/opt/eu4-data
 
