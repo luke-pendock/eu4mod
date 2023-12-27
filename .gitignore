@@ -1,2 +1,3 @@
-Europa Universalis IV
-Europa Universalis IV\*
+clausewitz-script-compiler/target
+clausewitz-script-compiler/target/*
+clausewitz-script-compiler/Cargo.lock

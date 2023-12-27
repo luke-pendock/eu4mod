@@ -1,0 +1,15 @@
+[package]
+name = "clausewitz-script-compiler"
+authors = ["Luke Pendock <luke.c.pendock@gmail.com>"]
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+quickcheck = "1"
+quickcheck_macros = "1"
+chumsky = "0.9.3"
+# ast = { path = "~/src/ast" }
+# print = { path = "~/src/print" }
+# parse = { path = "~/src/parse" }
