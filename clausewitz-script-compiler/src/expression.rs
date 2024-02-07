@@ -34,6 +34,12 @@ pub enum Expression {
 
     Variable(Identifier),
 
+    FunctionCall {
+        // TODO: Change function_name to function. It will be a reference to a Function struct yet to be defined.
+        function_name: String,
+        args: Vec<Box<Expression>>,
+    },
+
     UnaryExpression {
         operator: UnaryOperator,
         expression: Box<Expression>
@@ -68,7 +74,8 @@ impl Expression {
                 format!("{}{}{}", nested_expression(left_expression), operator.as_string(), nested_expression(right_expression))
             }
             Num(num) => num.to_string(),
-            Variable(var) => var.as_string()
+            Variable(var) => var.as_string(),
+            _ => todo!(),
         }
     }
 }
